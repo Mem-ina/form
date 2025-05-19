@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #f2f2f2;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      color: #444;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: orange;
+    }
+    .feedback {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form id="dimForm" action="https://formspree.io/f/xldbvnej" method="POST">
+      <!-- About Me -->
+      <div class="section">
+        <h2>About Me</h2>
+        <div class="form-group">
+          <label for="name">Name & Surname</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="title">Professional Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Professional Summary</h2>
+        <div class="form-group">
+          <label for="summary">Summary</label>
+          <textarea name="summary" rows="4" placeholder="I am a passionate UI/UX designer..." required></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Skills</h2>
+        <div class="form-group">
+          <label for="skills">Skill</label>
+          <input type="text" name="skills" placeholder="e.g., JavaScript, Figma, HTML..." />
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Languages</h2>
+        <div class="form-group">
+          <label for="languages">Languages</label>
+          <input type="text" name="languages" placeholder="would you like this to be a section or be included in your summary" />
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Projects</h2>
+        <div class="form-group">
+          <label for="project1">Project 1</label>
+          <input type="url" name="project1" placeholder="Link to project (e.g., portfolio)" />
+        </div>
+        <div class="form-group">
+          <label for="project2">Project 2</label>
+          <input type="url" name="project2" placeholder="Link to another project" />
+        </div>
+        <div class="form-group">
+          <label for="project3">Project 3</label>
+          <input type="url" name="project3" placeholder="Optional third project link" />
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Social Media</h2>
+        <div class="form-group">
+          <label for="linkedin">LinkedIn</label>
+          <input type="url" name="linkedin" placeholder="LinkedIn Profile URL" />
+        </div>
+        <div class="form-group">
+          <label for="github">GitHub</label>
+          <input type="url" name="github" placeholder="GitHub Profile URL" />
+        </div>
+        <div class="form-group">
+          <label for="other">Other</label>
+          <input type="url" name="other" placeholder="Other (whichever one they can easily get hold of you)" />
+        </div>
+      </div>
+
+      <button type="submit">Save</button> 
+    </form>
+
+    <div class="feedback" id="feedbackMsg" style="display: none;">
+      Thank you! You made my day sad.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("dimForm").addEventListener("submit", function () {
+      setTimeout(() => {
+        document.getElementById("feedbackMsg").style.display = "block";
+        this.reset();
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
